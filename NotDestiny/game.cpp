@@ -2,10 +2,11 @@
 #include <iostream>;
 
 Tile::Tile(int x, int y) {
-	
+	this->x = x;
+	this->y = y;
 };
 
-int Tile::GedId(int x, int y) {
+int Tile::GetId(int x, int y) {
 	
 };
 

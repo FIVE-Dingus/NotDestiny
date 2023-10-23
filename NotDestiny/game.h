@@ -10,7 +10,7 @@ private:
 public:
 	Tile(int x, int y);
 
-	int GedId(int x, int y);
+	int GetId(int x, int y);
 	void ValueFromCoord(int x, int y, int value);
 
 };

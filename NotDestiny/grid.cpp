@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "grid.h";
-using namespace std;
 
 Grid::Grid(int x, int y) {
 	this->sizeX = x;
