@@ -1,20 +1,12 @@
 #pragma once
 #include <vector>;
+#include <iostream>;
 
 class Grid
 {
 public:
-    vector<int> fistarray;
+    
 
 private:
-
+    std::vector<int> fistarray;
 };
-
-Grid::Grid()
-{
-}
-
-Grid::~Grid()
-{
-}
-	void printarray(int arg[], int length);

@@ -16,6 +16,9 @@
     <Filter Include="Fichiers sources\grid">
       <UniqueIdentifier>{8885380e-0c12-4968-9036-acc2bc11add9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\game">
+      <UniqueIdentifier>{1cca44f8-b16e-4b53-9f69-7c289de9e204}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NotDestiny.cpp">
@@ -24,10 +27,16 @@
     <ClCompile Include="grid.cpp">
       <Filter>Fichiers sources\grid</Filter>
     </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="grid.h">
       <Filter>Fichiers sources\grid</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Fichiers sources\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
