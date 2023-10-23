@@ -2,22 +2,14 @@
 //
 
 //#include <SDL.h>;
-#include <iostream>;
+#include <iostream>
 using namespace std;
 
-void printarray(int arg[], int length) {
-    for (int n = 0; n < length; ++n)
-        cout << arg[n] << ' ';
-    cout << '\n';
-}
+
 int main()
 {
     std::cout << "Hello World!\n";
 
-    int fistarray[] = { 0,0,0,0 };
-    int secarray[] = { 0,0,0,0 };
-    printarray(fistarray,4);
-    printarray(secarray, 4);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
