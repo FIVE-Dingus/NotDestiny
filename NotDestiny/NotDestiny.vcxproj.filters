@@ -13,10 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\grid">
+      <UniqueIdentifier>{8885380e-0c12-4968-9036-acc2bc11add9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NotDestiny.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="grid.cpp">
+      <Filter>Fichiers sources\grid</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="grid.h">
+      <Filter>Fichiers sources\grid</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
