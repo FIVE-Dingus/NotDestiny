@@ -1,12 +1,10 @@
 #pragma once
+#include <vector>;
 
 class Grid
 {
 public:
-    Grid::int fistarray[] = { 0,0,0,0 };
-    Grid::int secarray[] = { 0,0,0,0 };
-    Grid::printarray(fistarray, 4);
-    Grid::printarray(secarray, 4);
+    vector<int> fistarray;
 
 private:
 
