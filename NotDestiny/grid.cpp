@@ -2,7 +2,7 @@
 #include <vector>
 #include "grid.h";
 
-/*Grid::Grid(int x, int y) {
+Grid::Grid(int x, int y) {
 	this->sizeX = x;
 	this->sizeY = y;
 	this->sizeMax = this->sizeX * this->sizeY;
@@ -33,4 +33,4 @@ void Grid::changeValueWithCoordinates(int x, int y, int value) {
 	int id = this->getIdfromCoorinates(x, y);
 	this->tab[id - 1] = value;
 	this->display();
-};*/
+};
