@@ -19,7 +19,7 @@ void Grid::display() {
 		{
 			std::cout << " | \n";
 		}
-		std::cout << " | " << this->tab[i];
+		std::cout << " | " << this->tab[i] << " | ";
 	}
 	std::cout << " | \n\n";
 };
