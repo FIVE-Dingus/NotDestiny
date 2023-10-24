@@ -2,15 +2,49 @@
 //
 
 //#include <SDL.h>;
-#include <iostream>
-using namespace std;
+#include <iostream>;
+#include "game.h";
+#include "grid.h";
+#include <conio.h>;
 
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
 
 int main()
-{
-    std::cout << "Hello World!\n";
-    
-
+{  
+	Grid* bruh = new Grid(4, 4);
+	bruh->display();
+    int value = 0;
+    int c = 0;
+    bool badKey = true;
+    while (badKey)
+    {
+        badKey = false;
+        c = 0;
+        switch ((c = _getch()))
+        {
+        case KEY_UP:
+            value = 2;
+            break;
+        case KEY_DOWN:
+            break;
+        case KEY_RIGHT:
+            break;
+        case KEY_LEFT:
+            break;
+        default:
+            badKey = true;
+            break;
+        }
+    }
+    if (value == 2) {
+        bruh->changeValueWithCoordinates(3, 3, 2077);
+        bruh->display();
+    };
+	delete bruh;
+	
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

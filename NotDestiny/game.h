@@ -5,12 +5,11 @@ class Tile
 {
 private:
 	int x;
-	int y;
 	int value;
 public:
-	Tile(int x, int y);
+	Tile(int x, int value);
 
-	int GetId(int x, int y);
-	void ValueFromCoord(int x, int y, int value);
+	int GetId(int x);
+	void ValueFromCoord(int x, int value);
 
 };
