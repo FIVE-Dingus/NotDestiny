@@ -12,41 +12,77 @@
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
 
+
 int main()
 {  
 	Grid* bruh = new Grid(4, 4);
-	bruh->display();
-    int value = 0;
-    int c = 0;
-    bool badKey = true;
-    while (badKey)
-    {
-        badKey = false;
-        c = 0;
-        switch ((c = _getch()))
-        {
-        case KEY_UP:
-            value = 2;
-            break;
-        case KEY_DOWN:
-            break;
-        case KEY_RIGHT:
-            break;
-        case KEY_LEFT:
-            break;
-        default:
-            badKey = true;
-            break;
-        }
-    }
-    if (value == 2) {
-        bruh->changeValueWithCoordinates(3, 3, 2077);
+    while (true) {
         bruh->display();
-    };
-	delete bruh;
-	
+        int c = 0;
+        bool badKey = true;
+        while (badKey)
+        {
+            badKey = false;
+            c = 0;
+            switch ((c = _getch()))
+            {
+            case KEY_UP:
+                break;
+            case KEY_DOWN:
+                break;
+            case KEY_RIGHT:
+                break;
+            case KEY_LEFT:
+                break;
+            default:
+                badKey = true;
+                break;
+            }
+        }
+        delete bruh;
+    }
 }
+/*
+int main() 
+{
+    //afficher les nombres de 1 à 100
+    int i = 0;
+    for (i = 0; i < 101; i++) {
+        printf(" %d ", i);
+    };
 
+    i = 0;
+
+    //créer un tableau de 20 cases
+
+    int * tab = (int*) malloc(sizeof(int) * (20));
+
+    //mettre 1 dans chaque cases
+
+    for (i = 0; i < 20; i++)
+    {
+        tab[i] = 1;
+    };
+
+    i = 0;
+    //mettre 5 à chaque index pair du tableau
+
+    for (i = 0; i < 19; i++)
+    {
+            i = i + 1;
+            tab[i] = 5;
+    };
+    
+    i = 0;
+    //afficher le tableau
+
+    for (i = 0; i < 20; i ++)
+    {
+        printf(" %d ", tab[i]);
+    };
+
+    free(tab);
+}*/
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
 

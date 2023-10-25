@@ -8,10 +8,10 @@ Tile::Tile(int x, int value) {
 	this->x = x;
 	this->value = value;
 };
-/*int Tile::GetId(int x) {
-	
+int Tile::GetId(int x) {
+	return x;
 };
 
-void Tile::ValueFromCoord(int x, int value) {
-
-};*/
+int Tile::ValueFromId(int x, int value) {
+	return value;
+};
