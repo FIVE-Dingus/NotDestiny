@@ -26,7 +26,6 @@ int main()
         switch ((c = _getch()))
         {
         case KEY_UP:
-            value = 2;
             break;
         case KEY_DOWN:
             break;
@@ -39,7 +38,7 @@ int main()
             break;
         }
     }
-    if (value == 2) {
+    if (value == 1) {
         bruh->changeValueWithCoordinates(3, 3, 2077);
         bruh->display();
     };
