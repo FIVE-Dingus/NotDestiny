@@ -34,3 +34,38 @@ void Grid::changeValueWithCoordinates(int x, int y, int value) {
 	this->tab[id - 1] = value;
 	this->display();
 };
+
+void Grid::tile() {
+	this->changeValueWithCoordinates(1, 2, 2);
+	this->changeValueWithCoordinates(1, 4, 2);
+}
+
+int Grid::value(int x, int y) {
+	int id = getIdfromCoorinates(x, y);
+	int valeur = this->tab[id - 1];
+	
+
+	return valeur;
+}
+
+int Grid::fusion(int x,int y) {
+
+	for (int i = 4 - 1; i > 0; i--) {
+		int current = tab[i];
+		int other = current;
+		int index = i;
+		for (int y = i - 1; y >= 0; y--)
+		{
+			if (tab[y] != 0) {
+				other = tab[y];
+				index = y;
+			}
+		}
+		tab[i] = other;
+		tab[index] = current;
+
+	}
+	for (int i = 0; i < 4; i++) {
+		printf("%d", tab[i]);
+	}
+};

@@ -16,5 +16,8 @@ public:
     void display();
     int getIdfromCoorinates(int x, int y);
     void changeValueWithCoordinates(int x, int y, int value);
+    void tile();
+    int value(int x, int y);
+    int fusion(int x,int y );
 
 };

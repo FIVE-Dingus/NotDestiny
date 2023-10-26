@@ -18,7 +18,10 @@ int main()
 	Grid* bruh = new Grid(4, 4);
     while (true) {
         bruh->display();
+        bruh->tile();
+        bruh->value(1, 2);
         int c = 0;
+        int value = 0;
         bool badKey = true;
         while (badKey)
         {
@@ -37,6 +40,9 @@ int main()
             default:
                 badKey = true;
                 break;
+            }
+            if (value == 2) {
+                
             }
         }
         delete bruh;
