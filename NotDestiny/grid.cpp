@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <random>
 #include "grid.h";
 
 Grid::Grid(int x, int y) {
@@ -266,3 +267,18 @@ void Grid::fusion(int x) {
 		}
 	}
 };
+
+/* 
+void generateRandomValue(std::vector<std::vector<int>>& grid) {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> distribution(0, grid.size() - 1);
+	int randomRow = distribution(gen);
+	int randomCol = distribution(gen);
+
+	// sa générer aléatoirement un 2 ou un 4 
+	int value = (std::rand() % 10 == 0) ? 4 : 2;
+
+	grid[randomRow][randomCol] = value;
+}
+*/
