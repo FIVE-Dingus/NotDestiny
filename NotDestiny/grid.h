@@ -18,7 +18,7 @@ public:
     void changeValueWithCoordinates(int x, int y, int value);
     void tile();
     int value(int x, int y);
-    void moov(int x);
+    void move(int x);
     void fusion(int x);
 
 };

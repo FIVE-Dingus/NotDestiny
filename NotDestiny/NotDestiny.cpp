@@ -34,18 +34,24 @@ int main()
             case KEY_DOWN:
                 break;
             case KEY_RIGHT:
-                value = 2;
+                value = 1;
                 break;
             case KEY_LEFT:
+                value = 2;
                 break;
             default:
                 badKey = true;
                 break;
             }
-            if (value == 2) {
-                bruh->moov(1);
-                bruh->fusion(1);
-                bruh->moov(1);
+            if (value == 1) {
+                bruh->move(value);
+                bruh->fusion(value);
+                bruh->move(value);
+            }
+            else if(value == 2){
+                bruh->move(value);
+                bruh->fusion(value);
+                bruh->move(value);
             }
         }
     }
