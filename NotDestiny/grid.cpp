@@ -13,6 +13,8 @@ Grid::Grid(int x, int y) {
 	}
 };
 
+
+
 void Grid::display() {
 	for (int i = 0; i < this->sizeMax; i++) {
 		if (i % this->sizeY == 0 && i != 0) 
@@ -32,12 +34,12 @@ int Grid::getIdfromCoorinates(int x, int y) {
 void Grid::changeValueWithCoordinates(int x, int y, int value) {
 	int id = this->getIdfromCoorinates(x, y);
 	this->tab[id - 1] = value;
-	this->display();
 };
 
 void Grid::tile() {
-	this->changeValueWithCoordinates(1, 2, 2);
-	this->changeValueWithCoordinates(1, 4, 2);
+	this->changeValueWithCoordinates(1,1, 2);
+
+	this->changeValueWithCoordinates(2, 1, 2);
 }
 
 int Grid::value(int x, int y) {
@@ -48,24 +50,219 @@ int Grid::value(int x, int y) {
 	return valeur;
 }
 
-int Grid::fusion(int x,int y) {
+void Grid::moov(int x) {
+	if (x == 1) {
+		for (int i = 4 - 1; i > 0; i--) {
+			if (tab[i] == 0) 
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 0; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
 
-	for (int i = 4 - 1; i > 0; i--) {
-		int current = tab[i];
-		int other = current;
-		int index = i;
-		for (int y = i - 1; y >= 0; y--)
-		{
-			if (tab[y] != 0) {
-				other = tab[y];
-				index = y;
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
 			}
 		}
-		tab[i] = other;
-		tab[index] = current;
+		for (int i = 8 - 1; i > 4; i--) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 4; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
 
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+		for (int i = 12 - 1; i > 8; i--) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 8; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+		for (int i = 16 - 1; i > 12; i--) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 12; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
 	}
-	for (int i = 0; i < 4; i++) {
-		printf("%d", tab[i]);
+	if (x == 2) {
+		for (int i = 4 - 1; i > 0; i--) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 0; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+	}
+	if (x == 3) {
+		for (int i = 4 - 1; i > 0; i--) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 0; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+	}
+	if (x == 4) {
+		for (int i = 4 - 1; i > 0; i--) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 1; y >= 0; y--)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+	}
+};
+
+void Grid::fusion(int x) {
+	if (x == 1) {
+		for (int i = 4 - 1; i > 0; i--) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 1; y >= 0; y--)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+				
+			}
+
+		}
+		for (int i = 8 - 1; i > 4; i--) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 1; y >= 4; y--)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
+		for (int i = 12 - 1; i > 8; i--) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 1; y >= 8; y--)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
+		for (int i = 16 - 1; i > 12; i--) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 1; y >= 12; y--)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
 	}
 };

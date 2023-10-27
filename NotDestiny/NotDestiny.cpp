@@ -17,9 +17,9 @@ int main()
 {
     Grid* bruh = new Grid(4, 4);
     while (true) {
-        bruh->display();
-        bruh->tile();
         bruh->value(1, 2);
+        bruh->tile();
+        bruh->display();
         int c = 0;
         int value = 0;
         bool badKey = true;
@@ -34,6 +34,7 @@ int main()
             case KEY_DOWN:
                 break;
             case KEY_RIGHT:
+                value = 2;
                 break;
             case KEY_LEFT:
                 break;
@@ -42,11 +43,13 @@ int main()
                 break;
             }
             if (value == 2) {
-                
+                bruh->moov(1);
+                bruh->fusion(1);
+                bruh->moov(1);
             }
         }
-        delete bruh;
     }
+    delete bruh;
     /*if (value == 2) {
         bruh->changeValueWithCoordinates(3, 3, 2077);
         bruh->display();
