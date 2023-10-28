@@ -17,5 +17,6 @@ public:
     void randomTile();
     void move(int x);
     void fusion(int x);
+    int result();
 
 };

@@ -663,3 +663,31 @@ void Grid::fusion(int x) {
 		}
 	}
 };
+
+int Grid::result() {
+	int emptyCells = 0;
+	for (int i = 0; i < sizeMax; i++) {
+		if (tab[i] == 2048) {
+			return 1;
+		}
+		else if (tab[i] == 0) {
+			emptyCells++;
+		}
+	}
+
+	// si aucune cellule est vide, alors aucunes tuiles aléatoire ne peut être placée.
+	if (emptyCells == 0) {
+		std::vector<int> copyTab = tab;
+		this->fusion(1);
+		this->fusion(2);
+		this->fusion(3);
+		this->fusion(4);
+		if (copyTab == tab) {
+			return 2;
+		}
+		else {
+			tab = copyTab;
+			return 0;
+		}
+	}
+}
