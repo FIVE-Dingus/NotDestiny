@@ -30,8 +30,10 @@ int main()
             switch ((c = _getch()))
             {
             case KEY_UP:
+                value = 4;
                 break;
             case KEY_DOWN:
+                value = 3;
                 break;
             case KEY_RIGHT:
                 value = 1;
@@ -49,6 +51,11 @@ int main()
                 bruh->move(value);
             }
             else if(value == 2){
+                bruh->move(value);
+                bruh->fusion(value);
+                bruh->move(value);
+            }
+            else if (value == 3) {
                 bruh->move(value);
                 bruh->fusion(value);
                 bruh->move(value);
