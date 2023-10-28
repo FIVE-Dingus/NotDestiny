@@ -71,7 +71,7 @@ int Grid::fusion(int x,int y) {
 	}
 };
 
-/* 
+/*
 void generateRandomValue(std::vector<std::vector<int>>& grid) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
