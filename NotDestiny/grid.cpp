@@ -38,10 +38,38 @@ void Grid::changeValueWithCoordinates(int x, int y, int value) {
 	this->tab[id - 1] = value;
 };
 
-void Grid::tile() {
-	this->changeValueWithCoordinates(1,1, 2);
+void Grid::randomTile() {
+	// sa génère des nombres aléatoires 
+	std::random_device rd;  
+	std::mt19937 gen(rd()); 
 
-	this->changeValueWithCoordinates(2, 4, 2);
+	// Distribue les indices aléatoirement
+	std::uniform_int_distribution<int> distribution(0, sizeMax - 1); 
+
+	// Variable int emptyCells
+	int emptyCells = 0;
+	for (int i = 0; i < sizeMax; i++) {
+		if (tab[i] == 0) {
+			emptyCells++;
+		}
+	}
+	
+	// si aucune cellule est vide, alors aucunes tuiles aléatoire ne peut être placée.
+	if (emptyCells == 0) {
+		
+		return;
+	}
+	// Sa génère un indice aléatoire
+	int randomIndex = distribution(gen); 
+
+	// Trouve un index vide
+	while (tab[randomIndex] != 0) {
+		randomIndex = distribution(gen); 
+	}
+	// Variable de probabilité : générer aléatoirement 2 avec 90% de chance ou 4 avec 10% de chance.
+	int value = (rand() % 100 < 90) ? 2 : 4; 
+	tab[randomIndex] = value;
+
 }
 
 int Grid::value(int x, int y) {
@@ -527,18 +555,3 @@ void Grid::fusion(int x) {
 		}
 	}
 };
-
-/*
-void generateRandomValue(std::vector<std::vector<int>>& grid) {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> distribution(0, grid.size() - 1);
-	int randomRow = distribution(gen);
-	int randomCol = distribution(gen);
-
-	// ça générer aléatoirement un 2 ou un 4 
-	int value = (std::rand() % 10 == 0) ? 4 : 2;
-
-	grid[randomRow][randomCol] = value;
-}
-*/

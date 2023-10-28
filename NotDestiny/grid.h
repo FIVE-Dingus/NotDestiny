@@ -16,7 +16,7 @@ public:
     void display();
     int getIdfromCoorinates(int x, int y);
     void changeValueWithCoordinates(int x, int y, int value);
-    void tile();
+    void randomTile();
     int value(int x, int y);
     void move(int x);
     void fusion(int x);

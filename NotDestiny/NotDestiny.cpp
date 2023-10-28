@@ -18,7 +18,7 @@ int main()
     Grid* bruh = new Grid(4, 4);
     while (true) {
         bruh->value(1, 2);
-        bruh->tile();
+        bruh->randomTile();
         bruh->display();
         int c = 0;
         int value = 0;
