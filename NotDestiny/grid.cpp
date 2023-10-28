@@ -210,13 +210,33 @@ void Grid::move(int x) {
 		}
 	}
 	if (x == 3) {
-		for (int i = 0; i <= 8; i+4) {
+		for (int i = 12; i >= 4; i-=4) {
+				if (tab[i] == 0)
+				{
+					int current = tab[i];
+					int other = current;
+					int index = i;
+					for (int y = i - 4; y >= 0; y-=4)
+					{
+							if (tab[y] != 0) {
+								other = tab[y];
+								index = y;
+
+								tab[i] = other;
+								tab[index] = 0;
+								break;
+							}
+						}
+					}
+				
+		}
+		for (int i = 13; i >= 5; i -= 4) {
 			if (tab[i] == 0)
 			{
 				int current = tab[i];
 				int other = current;
 				int index = i;
-				for (int y = i + 4; y <= 12; y + 4)
+				for (int y = i - 4; y >= 1; y -= 4)
 				{
 					if (tab[y] != 0) {
 						other = tab[y];
@@ -228,6 +248,47 @@ void Grid::move(int x) {
 					}
 				}
 			}
+
+		}
+		for (int i = 14; i >= 6; i -= 4) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 4; y >= 2; y -= 4)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+
+		}
+		for (int i = 15; i >= 7; i -= 4) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i - 4; y >= 3; y -= 4)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+
 		}
 	}
 	if (x == 4) {
@@ -396,12 +457,63 @@ void Grid::fusion(int x) {
 		
 	}
 	else if (x == 3) {
-		for (int i = 0; i <= 12; i + 4) {
+		for (int i = 12; i >= 4; i -= 4) {
 			int current = tab[i];
 			int other = current;
 			int index = i;
 			if (tab[i] != 0) {
-				for (int y = i + 4; y <= 12; y +4 )
+				for (int y = i - 4; y >= 0; y -=4 )
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
+		for (int i = 13; i >= 5; i -= 4) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 4; y >= 1; y -= 4)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
+		for (int i = 14; i >= 6; i -= 4) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 4; y >= 2; y -= 4)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
+		for (int i = 15; i >= 7; i -= 4) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i - 4; y >= 3; y -= 4)
 				{
 					if (tab[y] == current) {
 						tab[i] = tab[y] * 2;
@@ -424,7 +536,7 @@ void generateRandomValue(std::vector<std::vector<int>>& grid) {
 	int randomRow = distribution(gen);
 	int randomCol = distribution(gen);
 
-	// sa générer aléatoirement un 2 ou un 4 
+	// ça générer aléatoirement un 2 ou un 4 
 	int value = (std::rand() % 10 == 0) ? 4 : 2;
 
 	grid[randomRow][randomCol] = value;
