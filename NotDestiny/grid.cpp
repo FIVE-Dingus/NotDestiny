@@ -210,7 +210,7 @@ void Grid::move(int x) {
 		}
 	}
 	if (x == 3) {
-		for (int i = 0; i <= 12; i + 4) {
+		for (int i = 0; i <= 8; i+4) {
 			if (tab[i] == 0)
 			{
 				int current = tab[i];
@@ -324,7 +324,7 @@ void Grid::fusion(int x) {
 
 		}
 	}
-	if (x == 2) {
+	else if (x == 2) {
 		for (int i = 0; i < 4; i++) {
 			int current = tab[i];
 			int other = current;
@@ -382,6 +382,26 @@ void Grid::fusion(int x) {
 			int index = i;
 			if (tab[i] != 0) {
 				for (int y = i + 1; y < 16; y++)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+
+		}
+		
+	}
+	else if (x == 3) {
+		for (int i = 0; i <= 12; i + 4) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i + 4; y <= 12; y +4 )
 				{
 					if (tab[y] == current) {
 						tab[i] = tab[y] * 2;

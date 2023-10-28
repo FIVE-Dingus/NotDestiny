@@ -63,12 +63,6 @@ int main()
         }
     }
     delete bruh;
-    /*if (value == 2) {
-        bruh->changeValueWithCoordinates(3, 3, 2077);
-        bruh->display();
-    };
-    delete bruh;
-    */
 }
 /*
 int main()
