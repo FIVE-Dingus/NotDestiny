@@ -16,9 +16,6 @@
     <Filter Include="Fichiers sources\grid">
       <UniqueIdentifier>{8885380e-0c12-4968-9036-acc2bc11add9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\game">
-      <UniqueIdentifier>{1cca44f8-b16e-4b53-9f69-7c289de9e204}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\test">
       <UniqueIdentifier>{11561f63-0ff5-489b-89b7-b2e967ab2e3c}</UniqueIdentifier>
     </Filter>
@@ -30,9 +27,6 @@
     <ClCompile Include="grid.cpp">
       <Filter>Fichiers sources\grid</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Fichiers sources\game</Filter>
-    </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>Fichiers sources\test</Filter>
     </ClCompile>
@@ -40,9 +34,6 @@
   <ItemGroup>
     <ClInclude Include="grid.h">
       <Filter>Fichiers sources\grid</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Fichiers sources\game</Filter>
     </ClInclude>
     <ClInclude Include="test.h">
       <Filter>Fichiers sources\test</Filter>

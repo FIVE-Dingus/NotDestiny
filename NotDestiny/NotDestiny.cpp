@@ -17,7 +17,6 @@ int main()
 {
     Grid* bruh = new Grid(4, 4);
     while (true) {
-        bruh->value(1, 2);
         bruh->randomTile();
         bruh->display();
         int c = 0;
@@ -56,6 +55,11 @@ int main()
                 bruh->move(value);
             }
             else if (value == 3) {
+                bruh->move(value);
+                bruh->fusion(value);
+                bruh->move(value);
+            }
+            else if (value == 4) {
                 bruh->move(value);
                 bruh->fusion(value);
                 bruh->move(value);

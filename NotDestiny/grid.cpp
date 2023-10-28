@@ -28,16 +28,6 @@ void Grid::display() {
 	std::cout << " ° \n\n";
 };
 
-int Grid::getIdfromCoorinates(int x, int y) {
-	int id = (x - 1) * this->sizeX + y;
-	return id;
-};
-
-void Grid::changeValueWithCoordinates(int x, int y, int value) {
-	int id = this->getIdfromCoorinates(x, y);
-	this->tab[id - 1] = value;
-};
-
 void Grid::randomTile() {
 	// sa génère des nombres aléatoires 
 	std::random_device rd;  
@@ -56,7 +46,6 @@ void Grid::randomTile() {
 	
 	// si aucune cellule est vide, alors aucunes tuiles aléatoire ne peut être placée.
 	if (emptyCells == 0) {
-		
 		return;
 	}
 	// Sa génère un indice aléatoire
@@ -70,14 +59,6 @@ void Grid::randomTile() {
 	int value = (rand() % 100 < 90) ? 2 : 4; 
 	tab[randomIndex] = value;
 
-}
-
-int Grid::value(int x, int y) {
-	int id = getIdfromCoorinates(x, y);
-	int valeur = this->tab[id - 1];
-	
-
-	return valeur;
 }
 
 void Grid::move(int x) {
@@ -320,13 +301,70 @@ void Grid::move(int x) {
 		}
 	}
 	if (x == 4) {
-		for (int i = 4 - 1; i > 0; i--) {
+		for (int i = 0; i < 12; i+=4) {
 			if (tab[i] == 0)
 			{
 				int current = tab[i];
 				int other = current;
 				int index = i;
-				for (int y = i - 1; y >= 0; y--)
+				for (int y = i + 4; y <=12 ; y+=4)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+		for (int i = 1; i < 13; i+=4) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i + 4; y <= 13; y+=4)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+		for (int i = 2; i < 14; i += 4) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i + 4; y <= 14; y += 4)
+				{
+					if (tab[y] != 0) {
+						other = tab[y];
+						index = y;
+
+						tab[i] = other;
+						tab[index] = 0;
+						break;
+					}
+				}
+			}
+		}
+		for (int i = 3; i < 15; i += 4) {
+			if (tab[i] == 0)
+			{
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				for (int y = i + 4; y <= 15; y += 4)
 				{
 					if (tab[y] != 0) {
 						other = tab[y];
@@ -548,6 +586,76 @@ void Grid::fusion(int x) {
 						tab[y] = 0;
 						break;
 					}
+				}
+
+			}
+
+		}
+	}
+	else if (x == 4) {
+		for (int i = 0; i < 12; i += 4) {
+			int current = tab[i];
+			int other = current;
+			int index = i;
+			if (tab[i] != 0) {
+				for (int y = i + 4; y <= 12; y += 4)
+				{
+					if (tab[y] == current) {
+						tab[i] = tab[y] * 2;
+						tab[y] = 0;
+						break;
+					}
+				}
+
+			}
+			for (int i = 1; i < 13; i += 4) {
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				if (tab[i] != 0) {
+					for (int y = i + 4; y <= 13; y += 4)
+					{
+						if (tab[y] == current) {
+							tab[i] = tab[y] * 2;
+							tab[y] = 0;
+							break;
+						}
+					}
+
+				}
+
+			}
+			for (int i = 2; i < 14; i += 4) {
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				if (tab[i] != 0) {
+					for (int y = i + 4; y <= 14; y += 4)
+					{
+						if (tab[y] == current) {
+							tab[i] = tab[y] * 2;
+							tab[y] = 0;
+							break;
+						}
+					}
+
+				}
+
+			}
+			for (int i = 3; i < 15; i += 4) {
+				int current = tab[i];
+				int other = current;
+				int index = i;
+				if (tab[i] != 0) {
+					for (int y = i + 4; y <= 15; y += 4)
+					{
+						if (tab[y] == current) {
+							tab[i] = tab[y] * 2;
+							tab[y] = 0;
+							break;
+						}
+					}
+
 				}
 
 			}

@@ -14,10 +14,7 @@ public:
     Grid(int x, int y);
 
     void display();
-    int getIdfromCoorinates(int x, int y);
-    void changeValueWithCoordinates(int x, int y, int value);
     void randomTile();
-    int value(int x, int y);
     void move(int x);
     void fusion(int x);
 
