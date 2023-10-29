@@ -1,17 +1,19 @@
     // NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
     //
-
+    // inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
     //#include <SDL.h>;
     #include <iostream>;
     #include "game.h";
     #include "grid.h";
     #include <conio.h>;
 
+    // definit les touches directionnel 
     #define KEY_UP 72
     #define KEY_DOWN 80
     #define KEY_LEFT 75
     #define KEY_RIGHT 77
 
+    // déclare la fonction restart
     void restart(int result);
 
 int main(){
@@ -77,12 +79,22 @@ int main(){
     delete bruh;
 }
 
-void restard(int result) {
+//fonction restart 
+void restart(int result) {
     if (result == 1) {
-        std::cout << "Bravo vous avez gagnez souhaitez vous rejouez ?";
+        std::cout << "Bravo vous avez gagné. Voulez-vous rejouer ? (O/N): ";
     }
     else if (result == 2) {
-        std::cout << "Malheuresement vous avez perdu, souhaitez vous prendre votre revanche ?";
+        std::cout << "Malheureusement vous avez perdu. Voulez-vous prendre votre revanche ? (O/N): ";
     }
 
+    char choice;
+    std::cin >> choice;
+
+    if (choice == 'O' || choice == 'o') {
+        
+    }
+    else {
+        
+    }
 }

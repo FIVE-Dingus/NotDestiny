@@ -18,14 +18,17 @@ Grid::Grid(int x, int y) {
 
 void Grid::display() {
 	std::cout << "\n";
+	std::cout << "---------------------------------------\n";
+	std::cout << "\n";
 	for (int i = 0; i < this->sizeMax; i++) {
 		if (i % this->sizeY == 0 && i != 0) 
 		{
 			std::cout << " ° \n\n";
 		}
-		std::cout << " {  " << this->tab[i] << "  } ";
+		std::cout << " |  " << this->tab[i] << "  | ";
 	}
 	std::cout << " ° \n\n";
+	std::cout << "---------------------------------------\n";
 };
 
 void Grid::randomTile() {

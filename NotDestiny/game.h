@@ -1,6 +1,6 @@
 #pragma once
 
-
+//structure de la classe Tile
 class Tile
 {
 private:
