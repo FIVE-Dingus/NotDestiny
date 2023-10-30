@@ -1,7 +1,7 @@
     // NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
     //
     // inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
-    //#include <SDL.h>;
+    #include <SDL.h>;
     #include <iostream>;
     #include "game.h";
     #include "grid.h";
@@ -14,9 +14,9 @@
     #define KEY_RIGHT 77
 
     // déclare la fonction restart
-    void restart(int result);
+    int restart(int result);
 
-int main(){
+void main(){
     Grid* game = new Grid(4, 4);
     while (true) {
         game->randomTile();
@@ -32,7 +32,10 @@ int main(){
             }
             else if (game->result() == 1){
                 int result = 1;
-                restart(result);
+                int reStart = restart(result);
+                if (reStart == 0) {
+                    return;
+                }
             }
             badKey = false;
             c = 0;
@@ -80,7 +83,7 @@ int main(){
 }
 
 //fonction restart 
-void restart(int result) {
+int restart(int result) {
     if (result == 1) {
         std::cout << "Bravo vous avez gagné. Voulez-vous rejouer ? (O/N): ";
     }
@@ -92,9 +95,9 @@ void restart(int result) {
     std::cin >> choice;
 
     if (choice == 'O' || choice == 'o') {
-        
+        main();
     }
     else {
-        
+        return 0;
     }
 }

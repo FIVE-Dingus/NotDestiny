@@ -25,7 +25,15 @@ void Grid::display() {
 		{
 			std::cout << " ° \n\n";
 		}
-		std::cout << " |  " << this->tab[i] << "  | ";
+		if (tab[i] < 10) {
+			std::cout << "  |  " << this->tab[i] << "  |  ";
+		} else if (tab[i] < 100) {
+			std::cout << "  |  " << this->tab[i] << "  | ";
+		} else if (tab[i] < 1000) {
+			std::cout << "  | " << this->tab[i] << " |  ";
+		} else if (tab[i] < 10000) {
+			std::cout << "  | " << this->tab[i] << " | ";
+		}
 	}
 	std::cout << " ° \n\n";
 	std::cout << "---------------------------------------\n";
