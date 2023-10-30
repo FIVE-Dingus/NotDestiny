@@ -17,20 +17,20 @@
     void restart(int result);
 
 int main(){
-    Grid* bruh = new Grid(4, 4);
+    Grid* game = new Grid(4, 4);
     while (true) {
-        bruh->randomTile();
-        bruh->display();
+        game->randomTile();
+        game->display();
         int c = 0;
         int value = 0;
         bool badKey = true;
         while (badKey)
         {
-            if (bruh->result() == 2) {
+            if (game->result() == 2) {
                 int result = 2;
                 restart(result);
             }
-            else if (bruh->result() == 1){
+            else if (game->result() == 1){
                 int result = 1;
                 restart(result);
             }
@@ -55,28 +55,28 @@ int main(){
                 break;
             }
             if (value == 1) {
-                bruh->move(value);
-                bruh->fusion(value);
-                bruh->move(value);
+                game->move(value);
+                game->fusion(value);
+                game->move(value);
             }
             else if(value == 2){
-                bruh->move(value);
-                bruh->fusion(value);
-                bruh->move(value);
+                game->move(value);
+                game->fusion(value);
+                game->move(value);
             }
             else if (value == 3) {
-                bruh->move(value);
-                bruh->fusion(value);
-                bruh->move(value);
+                game->move(value);
+                game->fusion(value);
+                game->move(value);
             }
             else if (value == 4) {
-                bruh->move(value);
-                bruh->fusion(value);
-                bruh->move(value);
+                game->move(value);
+                game->fusion(value);
+                game->move(value);
             }
         }
     }
-    delete bruh;
+    delete game;
 }
 
 //fonction restart 
