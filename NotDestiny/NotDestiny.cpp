@@ -1,7 +1,7 @@
     // NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
     //
     // inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
-    //#include <SDL.h>;
+    #include <SDL.h>;
     #include <iostream>;
     #include "game.h";
     #include "grid.h";
