@@ -137,11 +137,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="graphique .cpp" />
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="NotDestiny.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="graphique .h" />
     <ClInclude Include="grid.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>

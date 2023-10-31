@@ -17,7 +17,7 @@
 int restart(int result);
 void automatique(Grid* game);
 
-int main(){
+int main(int argc, char** argv){
     Grid* game = new Grid(4, 4);
     std::cout << "test ou vrai jeu: t/j";
     char choice;
@@ -110,7 +110,7 @@ int restart(int result) {
     std::cin >> choice;
 
     if (choice == 'O' || choice == 'o') {
-        main();
+        
     }
     else {
         return 58572;
