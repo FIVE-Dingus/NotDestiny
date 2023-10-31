@@ -15,9 +15,13 @@
 
 // déclare la fonction restart
 int restart(int result);
+void automatique(Grid* game);
 
 int main(){
     Grid* game = new Grid(4, 4);
+    std::cout << "test ou vrai jeu: t/j";
+    char choice;
+    std::cin >> choice;
     while (true) {
         game->randomTile();
         system("cls");
@@ -29,54 +33,64 @@ int main(){
         {
             if (game->result() == 2) {
                 int result = 2;
-                restart(result);
+                int reStart = restart(result);
+                if (reStart == 58572) {
+                    return 0;
+                }
             }
             else if (game->result() == 1){
                 int result = 1;
                 int reStart = restart(result);
-                if (reStart == 0) {
+                if (reStart == 58572) {
                     return 0;
                 }
             }
-            badKey = false;
-            c = 0;
-            switch ((c = _getch()))
-            {
-            case KEY_UP:
-                value = 4;
+            if (choice == 't' || 'T') {
+                automatique(game);
                 break;
-            case KEY_DOWN:
-                value = 3;
-                break;
-            case KEY_RIGHT:
-                value = 1;
-                break;
-            case KEY_LEFT:
-                value = 2;
-                break;
-            default:
                 badKey = true;
-                break;
             }
-            if (value == 1) {
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
-            }
-            else if(value == 2){
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
-            }
-            else if (value == 3) {
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
-            }
-            else if (value == 4) {
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
+            else if (choice == 'j' || 'J') {
+                badKey = false;
+                c = 0;
+                switch ((c = _getch()))
+                {
+                case KEY_UP:
+                    value = 4;
+                    break;
+                case KEY_DOWN:
+                    value = 3;
+                    break;
+                case KEY_RIGHT:
+                    value = 1;
+                    break;
+                case KEY_LEFT:
+                    value = 2;
+                    break;
+                default:
+                    badKey = true;
+                    break;
+                }
+                if (value == 1) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
+                else if (value == 2) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
+                else if (value == 3) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
+                else if (value == 4) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
             }
         }
     }
@@ -99,6 +113,13 @@ int restart(int result) {
         main();
     }
     else {
-        return 0;
+        return 58572;
     }
+}
+
+void automatique(Grid* game) {
+    int value = rand()%4;
+    game->move(value);
+    game->fusion(value);
+    game->move(value);
 }
