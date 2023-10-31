@@ -1,22 +1,23 @@
-    // NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-    //
-    // inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
-    #include <SDL.h>;
-    #include <iostream>;
-    #include "game.h";
-    #include "grid.h";
-    #include <conio.h>;
+// NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
+//
+// inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
+#include <SDL.h>;
+#include <iostream>;
+#include "game.h";
+#include "grid.h";
+#include <conio.h>;
 
-    // definit les touches directionnel 
-    #define KEY_UP 72
-    #define KEY_DOWN 80
-    #define KEY_LEFT 75
-    #define KEY_RIGHT 77
+// definit les touches directionnel 
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
 
-    // déclare la fonction restart
-    int restart(int result);
+// déclare la fonction restart
+int restart(int result);
 
-void main(){
+
+/*void main() {
     Grid* game = new Grid(4, 4);
     while (true) {
         game->randomTile();
@@ -80,7 +81,14 @@ void main(){
         }
     }
     delete game;
+}*/
+
+void SDL_main() {
+
 }
+
+
+
 
 //fonction restart 
 int restart(int result) {
