@@ -16,7 +16,7 @@
     // déclare la fonction restart
     int restart(int result);
 
-void main(){
+int main(int argc, char** argv){
     Grid* game = new Grid(4, 4);
     while (true) {
         game->randomTile();
@@ -34,7 +34,7 @@ void main(){
                 int result = 1;
                 int reStart = restart(result);
                 if (reStart == 0) {
-                    return;
+                    return 0;
                 }
             }
             badKey = false;
@@ -95,7 +95,7 @@ int restart(int result) {
     std::cin >> choice;
 
     if (choice == 'O' || choice == 'o') {
-        main();
+        
     }
     else {
         return 0;
