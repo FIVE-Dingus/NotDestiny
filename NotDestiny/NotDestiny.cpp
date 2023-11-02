@@ -16,7 +16,8 @@
 int restart(int result);
 void automatique(Grid* game);
 
-void main(){
+int main(){
+    // Initialisation de votre grille de jeu(Grid)
     Grid* game = new Grid(4, 4);
     std::cout << "test ou vrai jeu: t/j";
     char choice;
@@ -33,14 +34,14 @@ void main(){
             if (game->result() == 2) {
                 int result = 2;
                 int reStart = restart(result);
-                if (reStart == 58572) {
+                if (reStart == 0) {
                     return 0;
                 }
             }
             else if (game->result() == 1) {
                 int result = 1;
                 int reStart = restart(result);
-                if (reStart == 58572) {
+                if (reStart == 0) {
                     return 0;
                 }
             }
