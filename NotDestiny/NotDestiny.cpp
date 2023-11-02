@@ -14,6 +14,7 @@
 
 // déclare la fonction restart
 int restart(int result);
+void automatique(Grid* game);
 
 void main(){
     Grid* game = new Grid(4, 4);
@@ -28,7 +29,10 @@ void main(){
         {
             if (game->result() == 2) {
                 int result = 2;
-                restart(result);
+                int reStart = restart(result);
+                if (reStart == 0) {
+                    return;
+                }
             }
             else if (game->result() == 1){
                 int result = 1;
@@ -95,9 +99,16 @@ int restart(int result) {
     std::cin >> choice;
 
     if (choice == 'O' || choice == 'o') {
-        main();
+
     }
     else {
         return 0;
     }
+}
+
+void automatique(Grid* game) {
+    int value = rand() % 4;
+    game->move(value);
+    game->fusion(value);
+    game->move(value);
 }
