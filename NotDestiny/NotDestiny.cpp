@@ -45,12 +45,12 @@ int main(int argc, char** argv){
                     return 0;
                 }
             }
-            if (choice == 't' || 'T') {
+            if (choice == 't' || choice == 'T') {
                 automatique(game);
                 break;
                 badKey = true;
             }
-            else if (choice == 'j' || 'J') {
+            else if (choice == 'j' || choice == 'J') {
                 badKey = false;
                 c = 0;
                 switch ((c = _getch()))
@@ -95,7 +95,7 @@ int main(int argc, char** argv){
         }
     }
     delete game;
-}*/
+}
 
 void SDL_main() {
 
