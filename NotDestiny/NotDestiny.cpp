@@ -18,6 +18,9 @@ void automatique(Grid* game);
 
 void main(){
     Grid* game = new Grid(4, 4);
+    std::cout << "test ou vrai jeu: t/j";
+    char choice;
+    std::cin >> choice;
     while (true) {
         game->randomTile();
         system("cls");
@@ -30,56 +33,63 @@ void main(){
             if (game->result() == 2) {
                 int result = 2;
                 int reStart = restart(result);
-                if (reStart == 0) {
-                    return;
+                if (reStart == 58572) {
+                    return 0;
                 }
             }
-            else if (game->result() == 1){
+            else if (game->result() == 1) {
                 int result = 1;
                 int reStart = restart(result);
-                if (reStart == 0) {
-                    return;
+                if (reStart == 58572) {
+                    return 0;
                 }
             }
-            badKey = false;
-            c = 0;
-            switch ((c = _getch()))
-            {
-            case KEY_UP:
-                value = 4;
+            if (choice == 't' || choice == 'T') {
+                automatique(game);
                 break;
-            case KEY_DOWN:
-                value = 3;
-                break;
-            case KEY_RIGHT:
-                value = 1;
-                break;
-            case KEY_LEFT:
-                value = 2;
-                break;
-            default:
                 badKey = true;
-                break;
             }
-            if (value == 1) {
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
-            }
-            else if(value == 2){
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
-            }
-            else if (value == 3) {
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
-            }
-            else if (value == 4) {
-                game->move(value);
-                game->fusion(value);
-                game->move(value);
+            else if (choice == 'j' || choice == 'J') {
+                badKey = false;
+                c = 0;
+                switch ((c = _getch()))
+                {
+                case KEY_UP:
+                    value = 4;
+                    break;
+                case KEY_DOWN:
+                    value = 3;
+                    break;
+                case KEY_RIGHT:
+                    value = 1;
+                    break;
+                case KEY_LEFT:
+                    value = 2;
+                    break;
+                default:
+                    badKey = true;
+                    break;
+                }
+                if (value == 1) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
+                else if (value == 2) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
+                else if (value == 3) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
+                else if (value == 4) {
+                    game->move(value);
+                    game->fusion(value);
+                    game->move(value);
+                }
             }
         }
     }
