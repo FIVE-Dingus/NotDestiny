@@ -14,8 +14,6 @@ Grid::Grid(int x, int y) {
 	}
 };
 
-
-
 void Grid::display() {
 	std::cout << "\n";
 	std::cout << "---------------------------------------\n";

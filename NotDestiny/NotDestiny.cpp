@@ -35,7 +35,6 @@ int main(int argc, char** argv){
         return 1;
     }
 
-
     // Création du rendu
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (!renderer) {
@@ -75,89 +74,7 @@ int main(int argc, char** argv){
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
-
-    std::cout << "test ou vrai jeu: t/j";
-    char choice;
-    std::cin >> choice;
-    while (true) {
-        game->randomTile();
-        system("cls");
-        game->display();
-        int c = 0;
-        int value = 0;
-        bool badKey = true;
-        while (badKey)
-        {
-            if (game->result() == 2) {
-                int result = 2;
-                int reStart = restart(result);
-                if (reStart == 58572) {
-                    return 0;
-                }
-            }
-            else if (game->result() == 1){
-                int result = 1;
-                int reStart = restart(result);
-                if (reStart == 58572) {
-                    return 0;
-                }
-            }
-            if (choice == 't' || choice == 'T') {
-                automatique(game);
-                break;
-                badKey = true;
-            }
-            else if (choice == 'j' || choice == 'J') {
-                badKey = false;
-                c = 0;
-                switch ((c = _getch()))
-                {
-                case KEY_UP:
-                    value = 4;
-                    break;
-                case KEY_DOWN:
-                    value = 3;
-                    break;
-                case KEY_RIGHT:
-                    value = 1;
-                    break;
-                case KEY_LEFT:
-                    value = 2;
-                    break;
-                default:
-                    badKey = true;
-                    break;
-                }
-                if (value == 1) {
-                    game->move(value);
-                    game->fusion(value);
-                    game->move(value);
-                }
-                else if (value == 2) {
-                    game->move(value);
-                    game->fusion(value);
-                    game->move(value);
-                }
-                else if (value == 3) {
-                    game->move(value);
-                    game->fusion(value);
-                    game->move(value);
-                }
-                else if (value == 4) {
-                    game->move(value);
-                    game->fusion(value);
-                    game->move(value);
-                }
-            }
-        }
-    }
-    delete game;
 }
-
-void SDL_main() {
-
-}
-
 
 
 
@@ -177,7 +94,7 @@ int restart(int result) {
         
     }
     else {
-        return 58572;
+        return 0;
     }
 }
 
