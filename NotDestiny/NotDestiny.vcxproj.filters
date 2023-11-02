@@ -36,6 +36,9 @@
     <ClCompile Include="graphique .cpp">
       <Filter>Fichiers sources\graphique</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Fichiers sources\graphique</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="grid.h">
@@ -45,6 +48,9 @@
       <Filter>Fichiers sources\test</Filter>
     </ClInclude>
     <ClInclude Include="graphique .h">
+      <Filter>Fichiers sources\graphique</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
       <Filter>Fichiers sources\graphique</Filter>
     </ClInclude>
   </ItemGroup>

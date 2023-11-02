@@ -1,7 +1,7 @@
 // NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 // inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
-//#include <SDL.h>;
+#include <SDL.h>;
 #include <iostream>;
 #include "game.h";
 #include "grid.h";
@@ -17,6 +17,17 @@
 int restart(int result);
 
 int main(int argc, char** argv){
+
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+        std::cerr << "Erreur lors de l'initialisation de SDL : " << SDL_GetError() << std::endl;
+        return 1;
+    }
+
+    SDL_Window* window = SDL_CreateWindow("GameObject Example", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1550, 1000, 0);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+
+
     Grid* game = new Grid(4, 4);
     while (true) {
         game->randomTile();

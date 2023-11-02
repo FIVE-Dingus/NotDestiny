@@ -1,45 +1,52 @@
+#pragma once
+
 #include <iostream>
-#include <vector>
-#include <SDL.h>;
+#include <SDL.h>
+#include "GameObject.h"
+#include "Grid.h"
 
-class GameObject {
-public:
-    virtual void render(SDL_Renderer* renderer) const = 0;
+typedef enum TextureLabel
+{
+	Case2 = 0,
+	Case4 = 1,
+	Case8 = 2,
+	Case16 = 3,
+	Case32 = 4,
+	Case64 = 5,
+	Case128 = 6,
+	Case256 = 7,
+	Case512 = 8,
+	Case1024 = 9,
+	Case2048 = 10,
 };
 
-class GeometricObject : public GameObject {
-protected:
-    int x, y, width, height;
-    SDL_Color color;
+class Window
+{
+	/* Classe qui va gérer tout le rendu visuel*/
+private:
+	int screenWidth;
+	int screenHeight;
+	int nbColonnes;
+	int nbLignes;
+	int tileSizeX;
+	int tileSizeY;
+	int interTileoffset;
+	int borderOffset;
+	SDL_Texture* imageTextures[11];
+	SDL_Window* window;
+	SDL_Renderer* renderer;
+	SDL_Texture* texture;
+	SDL_Surface* surface;
 
 public:
-    GeometricObject(int x, int y, int width, int height, SDL_Color color)
-        : x(x), y(y), width(width), height(height), color(color) {}
+	Window(int screenWidth, int screenHeight, int nbColonnes, int nbLignes, int tileSizeX, int tileSizeY, int interTileoffset, int borderOffset);
 
-    void render(SDL_Renderer* renderer) const override {
-        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-        SDL_Rect rect = { x, y, width, height };
-        SDL_RenderFillRect(renderer, &rect);
-    }
+	void init();
+	void initSDL();
+	void cleanUpSDL();
+	void renderImage(int number, int x, int y, int h, int w);
+	void initGrid();
+	void graphicDisplay(Grid* o_grid);
+	void initImageTexture();
 };
 
-class ImageObject : public GameObject {
-protected:
-    int x, y;
-    SDL_Surface* imageSurface;
-    SDL_Texture* imageTexture;
-
-public:
-    ImageObject(int x, int y, const char* imagePath, SDL_Renderer* renderer)
-        : x(x), y(y) {
-        imageSurface = SDL_LoadBMP(imagePath);
-        imageTexture = SDL_CreateTextureFromSurface(renderer, imageSurface);
-        SDL_FreeSurface(imageSurface);
-    }
-
-    void render(SDL_Renderer* renderer) const override {
-        SDL_Rect dstRect = { x, y, 0, 0 };
-        SDL_QueryTexture(imageTexture, NULL, NULL, &dstRect.w, &dstRect.h);
-        SDL_RenderCopy(renderer, imageTexture, NULL, &dstRect);
-    }
-};
