@@ -6,6 +6,8 @@
 #include "game.h";
 #include "grid.h";
 #include <conio.h>;
+#include "RectObject.h"
+#include "Window.h"
 
 // definit les touches directionnel 
 #define KEY_UP 72
@@ -18,18 +20,62 @@ int restart(int result);
 void automatique(Grid* game);
 
 int main(int argc, char** argv){
-
+    
+    // Initialisation de SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        std::cerr << "Erreur lors de l'initialisation de SDL : " << SDL_GetError() << std::endl;
+        std::cerr << "Erreur d'initialisation de SDL : " << SDL_GetError() << std::endl;
         return 1;
     }
 
-    SDL_Window* window = SDL_CreateWindow("GameObject Example", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1550, 1000, 0);
+    // Création de la fenêtre
+    SDL_Window* window = SDL_CreateWindow("2048", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 800, SDL_WINDOW_SHOWN);
+    if (!window) {
+        std::cerr << "Erreur de création de la fenêtre : " << SDL_GetError() << std::endl;
+        SDL_Quit();
+        return 1;
+    }
+
+
+    // Création du rendu
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (!renderer) {
+        std::cerr << "Erreur de création du rendu : " << SDL_GetError() << std::endl;
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
 
-
-
+    // Initialisation de votre grille de jeu(Grid)
     Grid* game = new Grid(4, 4);
+
+    bool quit = false;
+    while (!quit) {
+        // Gestion des événements
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                quit = true;
+            }
+            else if (event.type == SDL_KEYDOWN) {
+                // Gérez les entrées du clavier (mouvement, etc.)
+            }
+        }
+
+        // Effacer l'écran
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+
+        // Dessinez votre grille de jeu (Grid) et ses tuiles ici
+
+        // Mise à jour de l'affichage
+        SDL_RenderPresent(renderer);
+    }
+
+    // Nettoyage et fermeture de SDL
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
     std::cout << "test ou vrai jeu: t/j";
     char choice;
     std::cin >> choice;
@@ -106,7 +152,7 @@ int main(int argc, char** argv){
         }
     }
     delete game;
-}*/
+}
 
 void SDL_main() {
 
@@ -141,3 +187,5 @@ void automatique(Grid* game) {
     game->fusion(value);
     game->move(value);
 }
+
+

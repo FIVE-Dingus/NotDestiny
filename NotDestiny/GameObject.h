@@ -1,18 +1,9 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include <SDL.h>;
 
-class GameObject
-{
-	/* Classe qui va définir les différentes tuiles de la grille */
-private:
-	int number;
-	std::string path;
+#include <SDL.h>
 
+class GameObject {
 public:
-	GameObject(int number);
-
-	void setPath();
-	std::string getPath();
+    virtual void render(SDL_Renderer* renderer) = 0;
+    virtual ~GameObject() = default;
 };

@@ -33,10 +33,13 @@
     <ClCompile Include="test.cpp">
       <Filter>Fichiers sources\test</Filter>
     </ClCompile>
-    <ClCompile Include="graphique .cpp">
+    <ClCompile Include="RectObject.cpp">
       <Filter>Fichiers sources\graphique</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
+      <Filter>Fichiers sources\graphique</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
       <Filter>Fichiers sources\graphique</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,10 +50,13 @@
     <ClInclude Include="test.h">
       <Filter>Fichiers sources\test</Filter>
     </ClInclude>
-    <ClInclude Include="graphique .h">
+    <ClInclude Include="RectObject.h">
       <Filter>Fichiers sources\graphique</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
+      <Filter>Fichiers sources\graphique</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
       <Filter>Fichiers sources\graphique</Filter>
     </ClInclude>
   </ItemGroup>
