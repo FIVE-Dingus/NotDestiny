@@ -18,6 +18,7 @@ typedef enum TextureLabel
 	Case512 = 8,
 	Case1024 = 9,
 	Case2048 = 10,
+
 };
 
 class Window
