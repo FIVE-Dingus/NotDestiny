@@ -137,15 +137,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="graphique .cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="RectObject.cpp" />
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="NotDestiny.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="graphique .h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="RectObject.h" />
     <ClInclude Include="grid.h" />
     <ClInclude Include="test.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
