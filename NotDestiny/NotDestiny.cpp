@@ -1,12 +1,12 @@
-    // NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-    //
-    // inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
-    #include <iostream>;
-    #include "game.h";
-    #include "grid.h";
-    #include <conio.h>;
+// NotDestiny.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
+//
+// inclue une bibliothèque qui contiennent des déclarations de fonctions, des définitions de classes, des constantes et d'autres 
+#include <iostream>;
+#include "game.h";
+#include "grid.h";
+#include <conio.h>;
 
-// definit les touches directionnel 
+// definit les flèches directionnel 
 #define KEY_UP 72
 #define KEY_DOWN 80
 #define KEY_LEFT 75
@@ -53,6 +53,7 @@ int main(){
             else if (choice == 'j' || choice == 'J') {
                 badKey = false;
                 c = 0;
+                // permet de jouer avec les flèches directionnel
                 switch ((c = _getch()))
                 {
                 case KEY_UP:
@@ -71,6 +72,7 @@ int main(){
                     badKey = true;
                     break;
                 }
+                // 1 = droite, 2 = gauche, 3 = bas et 4 = haut
                 if (value == 1) {
                     game->move(value);
                     game->fusion(value);
@@ -94,6 +96,7 @@ int main(){
             }
         }
     }
+    // permet de supprimer la grid
     delete game;
 }
 
@@ -110,13 +113,14 @@ int restart(int result) {
     std::cin >> choice;
 
     if (choice == 'O' || choice == 'o') {
-
+        main();
     }
     else {
         return 0;
     }
 }
 
+// Permet de jouer autmatiquement des mouvement random
 void automatique(Grid* game) {
     int value = rand() % 4;
     game->move(value);
