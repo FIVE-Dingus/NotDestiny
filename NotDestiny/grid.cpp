@@ -3,6 +3,7 @@
 #include <random>
 #include "grid.h";
 
+// permet de créer un tableau a 1 entrée 
 Grid::Grid(int x, int y) {
 	this->sizeX = x;
 	this->sizeY = y;
@@ -14,8 +15,7 @@ Grid::Grid(int x, int y) {
 	}
 };
 
-
-
+// permet d'afficher le tableau du jeu
 void Grid::display() {
 	std::cout << "\n";
 	std::cout << "---------------------------------------\n";
@@ -39,6 +39,7 @@ void Grid::display() {
 	std::cout << "---------------------------------------\n";
 };
 
+// permet de placer des tile random au début et a chaque tour
 void Grid::randomTile() {
 	// sa génère des nombres aléatoires 
 	std::random_device rd;  
@@ -72,6 +73,7 @@ void Grid::randomTile() {
 
 }
 
+// permet de faire les mouvement 
 void Grid::move(int x) {
 	if (x == 1) {
 		for (int i = 4 - 1; i > 0; i--) {
@@ -391,6 +393,8 @@ void Grid::move(int x) {
 	}
 };
 
+
+// permet de faire les fusions
 void Grid::fusion(int x) {
 	if (x == 1) {
 		for (int i = 4 - 1; i > 0; i--) {
@@ -675,6 +679,7 @@ void Grid::fusion(int x) {
 	}
 };
 
+// permet de verifier si le joueur gagne ou perd
 int Grid::result() {
 	int emptyCells = 0;
 	for (int i = 0; i < sizeMax; i++) {
@@ -690,9 +695,7 @@ int Grid::result() {
 	if (emptyCells == 0) {
 		std::vector<int> copyTab = tab;
 		this->fusion(1);
-		this->fusion(2);
 		this->fusion(3);
-		this->fusion(4);
 		if (copyTab == tab) {
 			return 2;
 		}
