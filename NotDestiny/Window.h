@@ -1,5 +1,3 @@
-
-
 #include "GameObject.h"
 
 class WindowObject : public GameObject {

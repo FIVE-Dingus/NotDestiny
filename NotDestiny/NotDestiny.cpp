@@ -9,6 +9,14 @@
 #include "RectObject.h"
 #include "Window.h"
 
+const int WINDOW_WIDTH = 400;
+const int WINDOW_HEIGHT = 400;
+const int GRID_SIZE = 4; // Taille de la grille 4x4
+
+SDL_Window* window = nullptr;
+SDL_Renderer* renderer = nullptr;
+
+
 // definit les touches directionnel 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -19,61 +27,69 @@
 int restart(int result);
 void automatique(Grid* game);
 
+
+
+void drawGrid() {
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // Couleur de fond blanche
+    SDL_RenderClear(renderer);
+
+    // Dessiner une grille de 4x4 (carrés vides)
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Couleur des lignes
+    for (int i = 0; i < GRID_SIZE; ++i) {
+        for (int j = 0; j < GRID_SIZE; ++j) {
+            SDL_Rect rect = { i * (WINDOW_WIDTH / GRID_SIZE), j * (WINDOW_HEIGHT / GRID_SIZE), WINDOW_WIDTH / GRID_SIZE, WINDOW_HEIGHT / GRID_SIZE };
+            SDL_RenderDrawRect(renderer, &rect);
+        }
+    }
+
+    SDL_RenderPresent(renderer);
+}
+
 int main(int argc, char** argv){
     
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        std::cerr << "Erreur d'initialisation de SDL : " << SDL_GetError() << std::endl;
+        std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return 1;
     }
 
     // Création de la fenêtre
-    SDL_Window* window = SDL_CreateWindow("2048", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 800, SDL_WINDOW_SHOWN);
-    if (!window) {
-        std::cerr << "Erreur de création de la fenêtre : " << SDL_GetError() << std::endl;
+    window = SDL_CreateWindow("2048 Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
+    if (window == nullptr) {
+        std::cerr << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
         SDL_Quit();
         return 1;
     }
 
     // Création du rendu
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (!renderer) {
-        std::cerr << "Erreur de création du rendu : " << SDL_GetError() << std::endl;
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (renderer == nullptr) {
         SDL_DestroyWindow(window);
+        std::cerr << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
         SDL_Quit();
         return 1;
     }
-
-    // Initialisation de votre grille de jeu(Grid)
-    Grid* game = new Grid(4, 4);
-
+    RectObject rect(100, 100, 50, 50, { 255, 0, 0, 255 }); // Exemple de création d'un objet rectangulaire rouge
     bool quit = false;
+    SDL_Event event;
+
     while (!quit) {
         // Gestion des événements
-        SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 quit = true;
             }
-            else if (event.type == SDL_KEYDOWN) {
-                // Gérez les entrées du clavier (mouvement, etc.)
-            }
+         
         }
-
-        // Effacer l'écran
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
-
-        // Dessinez votre grille de jeu (Grid) et ses tuiles ici
-
-        // Mise à jour de l'affichage
-        SDL_RenderPresent(renderer);
+        drawGrid();
     }
-
+    
     // Nettoyage et fermeture de SDL
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+   
+    return 0;
 }
 
 
